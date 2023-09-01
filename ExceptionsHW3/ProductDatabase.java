@@ -7,7 +7,7 @@ public class ProductDatabase {
         // Подразумевается обращение к базе данных или хранилищу товаров
         // и получение информации о товаре по его ID
         // В данном примере мы используем заглушку
-        if (productId == 1) {
+        if (productId > 0) {
             return new Product("Product 1", 10, 5.99);
         }
         throw new DatabaseException("Product not found");

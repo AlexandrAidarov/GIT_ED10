@@ -3,7 +3,7 @@ package ExceptionsHW3.Exceptions;
 public class NotAvaliableInput extends Exception{
     
     public NotAvaliableInput(String message) {
-        super("Not Avaliable input!");
+        super(message);
     }
 }
     

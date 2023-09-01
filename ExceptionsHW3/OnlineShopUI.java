@@ -15,9 +15,17 @@ public class OnlineShopUI {
             productId = scanner.nextInt();
         }
         
-        //int quantity = new Intejer;
-        //getProductQuantity();
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
 
+        QuantityChecker quantityChecker = new QuantityChecker(quantity);
+        try {
+            if (quantityChecker.productQuantityChecker()) {
+                System.out.println("Число корректно");
+            }
+        } catch (NotAvaliableInput e) {
+            System.out.println(e.getMessage());
+        }
 
         try{
             double totalPrice = ShopManager.purchaseProduct(productId, quantity);
@@ -25,22 +33,5 @@ public class OnlineShopUI {
         }catch (DatabaseException e){
             System.out.println(e.getMessage());
         }
-
-        public static void getProductQuantity() throws NotAvaliableInput {
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter quantity: ");
-            int quantity = scanner.nextInt();
-
-            if (quantity > 0) {
-                return quantity;
-            }
-            throw new NotAvaliableInput("Product not found");
-        }        
-
-
-
-
-
     }
 }
